@@ -10,9 +10,12 @@ int main() {
   
   tInvestimento teste;
 
-  teste.montInvestido = 1000;
-  teste.juroAno = 25;
-  teste.periodoAno = 2;
+  cout << "Digite o montante investido:" << endl;
+  cin >> teste.montInvestido;
+  cout << "Digite o juro ao ano:" << endl;
+  cin >> teste.juroAno;
+  cout << "Digite o periodo em anos que o dinheiro ficará investido:" << endl;
+  cin >> teste.periodoAno;
 
   teste.calculoJuros();
   teste.conversorJuro();
