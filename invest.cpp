@@ -1,17 +1,18 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
 struct tInvestimento{
-  int montInvestido, periodoAno;
-  float juroAno;
-  void abacate(tInvestimento teste){
-    int total;
-    total = teste.montInvestido * teste.periodoAno;
-    cout << total;
+  float montInvestido, juroAno, periodoAno, montFinalSimples, montFinalComposto;
+
+  void calculoJuros(){
+    montFinalSimples = montInvestido * (1 + ((juroAno/100) * periodoAno));
+    montFinalComposto = montInvestido * pow(1+(juroAno/100), periodoAno);
+
+    cout << montFinalSimples << endl;
+    cout << montFinalComposto << endl;
   }
+
 };
 
-// void abacate(){
-//   cout << "hi";
-// }
