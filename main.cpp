@@ -3,11 +3,16 @@
 
 using namespace std;
 
+
+
 int main() {
   
   tInvestimento teste;
 
   teste.montInvestido = 500;
+  teste.periodoAno = 2;
 
-  cout << teste.montInvestido << endl;
+  teste.abacate(teste);
+
+  
 }
