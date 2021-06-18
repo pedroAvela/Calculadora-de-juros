@@ -38,7 +38,7 @@ int main() {
     string montante, juro, periodo;
     cout << "Digite o montante investido:" << endl;
     cin >> montante;
-    cout << "Digite o juro ao ano:" << endl;
+    cout << "Digite o juro ao ano: (%)" << endl;
     cin >> juro;
     cout << "Digite o periodo em anos que o dinheiro ficará investido:" << endl;
     cin >> periodo;
