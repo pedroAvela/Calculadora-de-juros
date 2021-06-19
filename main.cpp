@@ -4,24 +4,19 @@
 
 using namespace std;
 
-bool verificador(string montante, string juro, string periodo){
-  if ((montante[0] > 47) && (montante[0] < 58)){
-    if ((juro[0] > 47) && (juro[0] < 58)){
-      if ((periodo[0] > 47) && (periodo[0] < 58)){
-        return true;
-      }else{
-        return false;
-      }
+bool verificadorString(string placeholder){
+  for (int i = 0; i < placeholder.length(); i++){
+    if (((placeholder[i] > 47) && (placeholder[i] < 58)) || (placeholder[i] == 46)){
+      continue;
     }else{
       return false;
     }
-  }else{
-    return false;
   }
+  return true;
 }
 
 int main() {
-  tInvestimento teste;
+  tInvestimento invest;
   bool is_playing = true;
   char choice;
 
@@ -36,6 +31,7 @@ int main() {
   while (is_playing){
     bool is_choosing = true;
     string montante, juro, periodo;
+
     cout << "Digite o montante investido:" << endl;
     cin >> montante;
     cout << "Digite o juro ao ano: (%)" << endl;
@@ -43,19 +39,20 @@ int main() {
     cout << "Digite o periodo em anos que o dinheiro ficará investido:" << endl;
     cin >> periodo;
 
-    if (verificador(montante, juro, periodo) == false){
+
+    if ((verificadorString(montante) == false) || (verificadorString(juro) == false) || (verificadorString(periodo) == false)){
       cout << "\033[2J\033[1;1H";
       cout << "Números inválidos" << endl;
       continue;
     }
 
-    teste.montInvestido = stof(montante);
-    teste.juroAno = stof(juro);
-    teste.periodoAno = stof(periodo);
+    invest.montInvestido = stof(montante);
+    invest.juroAno = stof(juro);
+    invest.periodoAno = stof(periodo);
 
-    teste.calculoJuros();
-    teste.conversorJuro();
-    teste.imprimirValores();
+    invest.calculoJuros();
+    invest.conversorJuro();
+    invest.imprimirValores();
 
     cout << "\nDeseja fazer calcular mais algum valor? y para sim, n para não" << endl;
     cin >> choice;
