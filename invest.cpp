@@ -8,7 +8,7 @@ struct tInvestimento{
   float montInvestido, juroAno, periodoAno, montFinalSimples, montFinalComposto, juroMes, taxaAno;
 
   void calculoJuros(){
-    taxaAno = (float(juroAno))/100;
+    taxaAno = (juroAno)/100;
     montFinalSimples = montInvestido * (1 + (taxaAno * periodoAno));
     montFinalComposto = montInvestido * pow(1+taxaAno, periodoAno);
 

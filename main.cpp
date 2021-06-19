@@ -7,7 +7,7 @@ using namespace std;
 bool verificadorString(string valores){
   int point = 0;
   for (int i = 0; i < valores.length(); i++){
-    if (((valores[i] < 48) && (valores[i] > 57) && (valores[i] != 46)) || (point > 1)){
+    if ((((valores[i] < 48) || (valores[i] > 57)) && (valores[i] != 46)) || (point > 1)){
       return false;
     }else if (valores[i] == 46){
       point++;
