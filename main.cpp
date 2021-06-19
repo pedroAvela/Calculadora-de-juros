@@ -4,12 +4,13 @@
 
 using namespace std;
 
-bool verificadorString(string placeholder){
-  for (int i = 0; i < placeholder.length(); i++){
-    if (((placeholder[i] > 47) && (placeholder[i] < 58)) || (placeholder[i] == 46)){
-      continue;
-    }else{
+bool verificadorString(string valores){
+  int point = 0;
+  for (int i = 0; i < valores.length(); i++){
+    if (((valores[i] < 48) && (valores[i] > 57) && (valores[i] != 46)) || (point > 1)){
       return false;
+    }else if (valores[i] == 46){
+      point++;
     }
   }
   return true;
@@ -54,7 +55,7 @@ int main() {
     invest.conversorJuro();
     invest.imprimirValores();
 
-    cout << "\nDeseja fazer calcular mais algum valor? y para sim, n para não" << endl;
+    cout << "\nDeseja calcular mais algum valor? y para sim, n para não" << endl;
     cin >> choice;
 
     while (is_choosing){
